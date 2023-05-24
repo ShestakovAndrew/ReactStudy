@@ -1,12 +1,12 @@
 import './App.css';
-import Greet from "./components/Greet";
-import Welcome from "./components/Welcome";
+import FunctionClick from "./components/FunctionClick";
+import ClassClick from "./components/ClassClick";
 
 function App() {
   return (
     <div className="App">
-      <Greet name='Андрей' heroName='Супермен'/>
-      <Welcome name='Андрей' heroName='Супермен'/>
+        <FunctionClick />
+        <ClassClick />
     </div>
   );
 }
