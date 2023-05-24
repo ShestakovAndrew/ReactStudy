@@ -1,5 +1,6 @@
 import './App.css';
 import Greet from "./components/Greet";
+import Welcome from "./components/Welcome";
 
 function App() {
   return (
@@ -11,6 +12,10 @@ function App() {
           <button>Действие</button>
       </Greet>
       <Greet name="Рома" heroName="Бетмен"/>
+
+      <Welcome name="Андрей" heroName="Супермен"></Welcome>
+      <Welcome name="Таня" heroName="Супер-Женщина"></Welcome>
+      <Welcome name="Рома" heroName="Бетмен"></Welcome>
     </div>
   );
 }
