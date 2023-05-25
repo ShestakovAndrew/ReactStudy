@@ -1,10 +1,10 @@
 import './App.css';
-import FocusInput from "./components/FocusInput";
+import FrParentInput from "./components/FRParentInput";
 
 function App() {
   return (
     <div className="App">
-        <FocusInput />
+        <FrParentInput />
     </div>
   );
 }
