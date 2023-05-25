@@ -20,6 +20,20 @@ class LifecyclyB extends Component {
 		return null
 	}
 
+	shouldComponentUpdate(nextProps, nextState, nextContext) {
+		console.log('LifecyclyB shouldComponentUpdate')
+		return true;
+	}
+
+	getSnapshotBeforeUpdate(prevProps, prevState) {
+		console.log('LifecyclyB getSnapshotBeforeUpdate')
+		return null;
+	}
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		console.log('LifecyclyB componentDidUpdate')
+	}
+
 	render() {
 		console.log('LifecyclyB render')
 		return <div>LifecyclyB</div>

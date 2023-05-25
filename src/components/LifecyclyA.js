@@ -12,13 +12,33 @@ class LifecyclyA extends Component {
 		console.log('LifecyclyA конструктор')
 	}
 
+	static getDerivedStateFromProps() {
+		console.log('LifecyclyA getDerivedStateFromProps')
+		return null
+	}
+
 	componentDidMount() {
 		console.log('LifecyclyA componentDidMount')
 	}
 
-	static getDerivedStateFromProps() {
-		console.log('LifecyclyA getDerivedStateFromProps')
-		return null
+	shouldComponentUpdate(nextProps, nextState, nextContext) {
+		console.log('LifecyclyA shouldComponentUpdate')
+		return true;
+	}
+
+	getSnapshotBeforeUpdate(prevProps, prevState) {
+		console.log('LifecyclyA getSnapshotBeforeUpdate')
+		return null;
+	}
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		console.log('LifecyclyA componentDidUpdate')
+	}
+
+	changeState = () => {
+		this.setState({
+			name: 'Codevolution'
+		})
 	}
 
 	render() {
@@ -26,6 +46,7 @@ class LifecyclyA extends Component {
 		return(
 			<div>
 				<div>Lifecycly A</div>
+				<button onClick={this.changeState}>Изменить состояние</button>
 				<LifecyclyB />
 			</div>
 		)
