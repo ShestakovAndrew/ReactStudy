@@ -1,1 +1,2 @@
-# Изучение основ React JS
+# ReactStudy
+Изучение React JS
