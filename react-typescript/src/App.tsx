@@ -1,7 +1,8 @@
 import './App.css';
+import {Status} from "./components/Status";
+import {Heading} from "./components/Heading";
+import {Oscar} from "./components/Oscar";
 import {Greet} from "./components/Greet";
-import {Person} from "./components/Person";
-import {PersonList} from "./components/PersonList";
 
 function App() {
     const personName = {
@@ -24,12 +25,14 @@ function App() {
         }
     ]
 
-
     return (
     <div className="App">
-      <Greet name='Андрей' messageCount={5} isLoggedIn={true}/>
-      <Person name={personName} />
-        <PersonList names={personList} />
+      <Status status='success' />
+        <Heading>Placeholder text</Heading>
+        <Oscar>
+            <Heading>Oscar goes to Leonardo Dicaprio!</Heading>
+        </Oscar>
+        <Greet name='Андрей' isLoggedIn={false}/>
     </div>
     )
 }
