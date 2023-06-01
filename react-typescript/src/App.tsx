@@ -1,12 +1,10 @@
 import './App.css';
-import {CustomButton} from "./components/html/Button";
+import {CustomComponent} from "./components/html/CustomComponent";
 
 function App() {
     return (
     <div className="App">
-        <CustomButton variant='primary' onClick={() => console.log('Clicked')}>
-            Primary button
-        </CustomButton>
+        <CustomComponent name='Андрей' isLoggedIn/>
     </div>
     )
 }
