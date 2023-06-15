@@ -1,4 +1,4 @@
-import {useAppSelector} from "../../app/hooks"
+import {useAppSelector} from "../../redux/hooks"
 
 export const ViewTodoList = () => {
     const todoList = useAppSelector((state) => state.todoList)
@@ -9,7 +9,6 @@ export const ViewTodoList = () => {
             <table className='todoTable'>
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Название</th>
                     <th>Описание</th>
                     <th>Приоритет</th>
@@ -18,7 +17,6 @@ export const ViewTodoList = () => {
                 <tbody>
                     {todoList.map(todoElement => (
                         <tr key={todoElement.id}>
-                            <td>{todoElement.id}</td>
                             <td>{todoElement.title}</td>
                             <td>{todoElement.description}</td>
                             <td>{todoElement.priority}</td>

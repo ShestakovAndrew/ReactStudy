@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 
-import {ViewTodoList} from "./components/view-todo-list-page/ViewTodoList";
-import {CreateTodoElement} from "./components/new-todo-page/CreateTodoElement";
-import {NoMatch} from "./components/no-match-page/NoMatch";
-import {PageNavigationBar} from "./components/PageNavigationBar";
+import {ViewTodoList} from "./pages/todo-list-page/ViewTodoList";
+import {CreateTodoElement} from "./pages/createTodoPages/CreateTodoElement";
+import {NoMatch} from "./pages/noMatchPage/NoMatch";
+import {PageNavigationBar} from "./pages/todo-list-page/PageNavigationBar";
 
 function App() {
   return (
