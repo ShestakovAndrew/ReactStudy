@@ -1,4 +1,4 @@
-import {TodoElementType, TodoPriorityEnum} from "./todoSlice.types";
+import {TodoElementType, TodoPriorityEnum} from "./todo.types";
 
 export const todoList: TodoElementType[] = [
     {
