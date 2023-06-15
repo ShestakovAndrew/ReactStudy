@@ -1,7 +1,7 @@
-import {useAppSelector} from "../../redux/hooks"
+import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector";
 
-export const ViewTodoList = () => {
-    const todoList = useAppSelector((state) => state.todoList)
+export const TodoList = () => {
+    const todoList = useTodoListSelector()
 
     return (
         <div>
