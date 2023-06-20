@@ -10,12 +10,12 @@ function App() {
   return (
       <div>
         <Routes>
-          <Route index path='/view-todo-list' element={<TodoList />}/>
-          <Route path='/add-new-todo-element' element={<CreateTodoItem />}/>
+          <Route index path='/todo-list' element={<TodoList />}/>
+          <Route path='/create-todo-item' element={<CreateTodoItem />}/>
           <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>
   )
 }
 
-export default App;
+export default App
