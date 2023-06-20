@@ -1,7 +1,7 @@
 import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector";
 import {TodoItem} from "./todoItem/TodoItem";
 
-export const TodoList = () => {
+const TodoList = () => {
     const todoList = useTodoListSelector()
 
     return (
@@ -20,4 +20,8 @@ export const TodoList = () => {
             <button>Добавить новое дело</button>
         </div>
     )
+}
+
+export {
+    TodoList
 }

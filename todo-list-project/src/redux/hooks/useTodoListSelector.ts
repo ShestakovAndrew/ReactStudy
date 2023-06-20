@@ -1,5 +1,9 @@
 import {useAppSelector} from "./baseHooks"
 
-export function useTodoListSelector() {
+function useTodoListSelector() {
     return useAppSelector((state) => state.todoList)
+}
+
+export {
+    useTodoListSelector
 }

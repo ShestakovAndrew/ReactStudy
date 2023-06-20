@@ -1,6 +1,6 @@
 import {TodoItemType, TodoPriority} from "../pages/todoList/model/todo.types";
 
-export const todoList: TodoItemType[] = [
+const todoList: TodoItemType[] = [
     {
         id: '0',
         title: 'Проснуться',
@@ -44,3 +44,7 @@ export const todoList: TodoItemType[] = [
         priority: TodoPriority.Medium
     }
 ]
+
+export {
+    todoList
+}

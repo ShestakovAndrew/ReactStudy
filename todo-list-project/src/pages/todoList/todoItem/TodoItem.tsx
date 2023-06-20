@@ -6,7 +6,7 @@ type TodoItemProps = {
     priority: TodoPriority
 }
 
-export const TodoItem = ({title, description, priority}: TodoItemProps) => {
+const TodoItem = ({title, description, priority}: TodoItemProps) => {
     return (
         <div>
             <h2>{title}</h2>
@@ -14,4 +14,8 @@ export const TodoItem = ({title, description, priority}: TodoItemProps) => {
             <p>{priority}</p>
         </div>
     )
+}
+
+export {
+    TodoItem
 }
