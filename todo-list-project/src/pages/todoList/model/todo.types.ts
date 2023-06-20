@@ -1,11 +1,11 @@
-export type TodoElementType = {
+export type TodoItem = {
     id: string,
     title: string,
     description: string,
-    priority: TodoPriorityEnum
+    priority: TodoPriority
 }
 
-export enum TodoPriorityEnum {
+export enum TodoPriority {
     Low = 0,
     Medium = 1,
     High = 2

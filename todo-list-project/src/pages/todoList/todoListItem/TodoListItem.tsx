@@ -1,13 +1,13 @@
-import {TodoPriorityEnum} from "../../../mock/todo.types";
+import {TodoPriority} from "../model/todo.types";
 
-type TodoElementTypeProps = {
+type TodoItemTypeProps = {
     title: string,
     description: string,
-    priority: TodoPriorityEnum
+    priority: TodoPriority
 }
 
 
-export const TodoListItem = ({title, description, priority}: TodoElementTypeProps) => {
+export const TodoListItem = ({title, description, priority}: TodoItemTypeProps) => {
     return (
         <ul>
             <li>{title}</li>
