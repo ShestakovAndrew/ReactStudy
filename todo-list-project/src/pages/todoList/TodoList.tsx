@@ -1,9 +1,8 @@
 import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector";
-import {TodoItemType} from "./model/todo.types";
 import {TodoItem} from "./todoItem/TodoItem";
 
 export const TodoList = () => {
-    const todoList: TodoItemType[] = useTodoListSelector()
+    const todoList = useTodoListSelector()
 
     return (
         <div>
