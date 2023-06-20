@@ -1,5 +1,5 @@
-import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector";
-import {TodoItem} from "./todoItem/TodoItem";
+import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector"
+import {TodoItem} from "./todoItem/TodoItem"
 
 const TodoList = () => {
     const todoList = useTodoListSelector()
