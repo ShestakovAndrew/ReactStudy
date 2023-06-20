@@ -1,16 +1,16 @@
 import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector";
-import {TodoItem} from "./model/todo.types";
-import {TodoListItem} from "./todoListItem/TodoListItem";
+import {TodoItemType} from "./model/todo.types";
+import {TodoItem} from "./todoListItem/TodoItem";
 
 export const TodoList = () => {
-    const todoList: TodoItem[] = useTodoListSelector()
+    const todoList: TodoItemType[] = useTodoListSelector()
 
     return (
         <div>
             <h2>Мой список дел</h2>
             {
                 todoList.map(todoItem => (
-                    <TodoListItem
+                    <TodoItem
                         title={todoItem.title}
                         description={todoItem.description}
                         priority={todoItem.priority}

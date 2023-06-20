@@ -7,7 +7,7 @@ type TodoItemTypeProps = {
 }
 
 
-export const TodoListItem = ({title, description, priority}: TodoItemTypeProps) => {
+export const TodoItem = ({title, description, priority}: TodoItemTypeProps) => {
     return (
         <ul>
             <li>{title}</li>
