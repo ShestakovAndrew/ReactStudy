@@ -8,10 +8,10 @@ type TodoItemProps = {
 
 export const TodoItem = ({title, description, priority}: TodoItemProps) => {
     return (
-        <ul>
-            <li>{title}</li>
-            <li>{description}</li>
-            <li>{priority}</li>
-        </ul>
+        <div>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{priority}</p>
+        </div>
     )
 }

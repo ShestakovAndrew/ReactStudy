@@ -6,7 +6,7 @@ export const TodoList = () => {
 
     return (
         <div>
-            <h2>Мой список дел</h2>
+            <h1>Мой список дел</h1>
             {
                 todoList.map(todoItem => (
                     <TodoItem key={todoItem.id}
