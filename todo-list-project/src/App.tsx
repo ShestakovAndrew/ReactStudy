@@ -10,7 +10,7 @@ function App() {
   return (
       <div>
         <Routes>
-          <Route index path='/todo-list' element={<TodoList />}/>
+          <Route path='/todo-list' element={<TodoList />}/>
           <Route path='/create-todo-item' element={<CreateTodoItem />}/>
           <Route path='*' element={<NotFound />}/>
         </Routes>
