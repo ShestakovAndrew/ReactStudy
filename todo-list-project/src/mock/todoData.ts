@@ -1,6 +1,6 @@
-import {TodoItem, TodoPriority} from "../pages/todoList/model/todo.types";
+import {TodoItemType, TodoPriority} from "../pages/todoList/model/todo.types";
 
-export const todoList: TodoItem[] = [
+export const todoList: TodoItemType[] = [
     {
         id: '0',
         title: 'Проснуться',
