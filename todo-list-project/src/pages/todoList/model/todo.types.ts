@@ -1,4 +1,4 @@
-type TodoItemType = {
+type TodoItemData = {
     id: string,
     title: string,
     description: string,
@@ -12,9 +12,9 @@ enum TodoPriority {
 }
 
 export {
-    TodoPriority
+    TodoPriority,
 }
 
 export type {
-    TodoItemType
+    TodoItemData
 }
