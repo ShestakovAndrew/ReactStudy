@@ -2,11 +2,11 @@ import {createSlice} from '@reduxjs/toolkit'
 import {TodoItemData} from "./todo.types"
 import {todoList} from "../../../mock/todoData"
 
-type InitialStateType = {
+type TodoListState = {
     todoList: TodoItemData[]
 }
 
-const initialState: InitialStateType = {
+const initialState: TodoListState = {
     todoList: todoList
 }
 
