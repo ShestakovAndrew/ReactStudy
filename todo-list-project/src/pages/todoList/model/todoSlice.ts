@@ -14,11 +14,18 @@ const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        add: (state, action) => {
-            //add new element
+        addTodo: (state, action) => {
+            const newTodo: TodoItemData = {
+                id: Date.now().toString(),
+                title: action.payload.title,
+                description: action.payload.description,
+                priority: action.payload.priority,
+            }
+
+            state.todoList.push(newTodo)
         }
     }
 })
 
 export default todoSlice.reducer
-export const {add} = todoSlice.actions
+export const {addTodo} = todoSlice.actions
