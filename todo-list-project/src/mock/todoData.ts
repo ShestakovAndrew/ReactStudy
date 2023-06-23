@@ -4,7 +4,7 @@ const todoList: TodoItemData[] = [
     {
         id: '0',
         title: 'Проснуться',
-        description: "",
+        description: '',
         priority: TodoPriority.Low
     },
     {
@@ -40,7 +40,7 @@ const todoList: TodoItemData[] = [
     {
         id: '6',
         title: 'Покататься на самокате',
-        description: 'до yolka в кино и обратно',
+        description: 'до Yolka в кино и обратно',
         priority: TodoPriority.Medium
     }
 ]

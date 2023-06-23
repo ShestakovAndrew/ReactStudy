@@ -1,4 +1,5 @@
 import {TodoPriority} from "../model/todo.types"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 type TodoItemProps = {
     title: string,
@@ -8,11 +9,11 @@ type TodoItemProps = {
 
 const TodoItem = ({title, description, priority}: TodoItemProps) => {
     return (
-        <div>
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <p>{priority}</p>
-        </div>
+        <tr>
+            <td>{title}</td>
+            <td>{description}</td>
+            <td>{priority}</td>
+        </tr>
     )
 }
 

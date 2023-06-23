@@ -6,9 +6,9 @@ type TodoItemData = {
 }
 
 enum TodoPriority {
-    Low = 0,
-    Medium = 1,
-    High = 2
+    Low = 'Низкий',
+    Medium = 'Средний',
+    High = 'Высокий'
 }
 
 export {
