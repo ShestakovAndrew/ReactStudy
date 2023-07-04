@@ -1,9 +1,12 @@
-type TodoItemData = {
-    id: string,
+type TodoItemProps = {
     title: string,
     description: string,
     priority: TodoPriority
 }
+
+type TodoItemData = {
+    id: string,
+} & TodoItemProps
 
 enum TodoPriority {
     Low = 'Низкий',
@@ -16,5 +19,6 @@ export {
 }
 
 export type {
-    TodoItemData
+    TodoItemProps,
+    TodoItemData,
 }
