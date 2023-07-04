@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {TodoItemData} from "./todo.types"
 import {todoList} from "../../../mock/todoData"
+import {addTodo} from "./actions/addTodo";
 
 type TodoListState = {
     todoList: TodoItemData[]
@@ -14,18 +15,13 @@ const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        addTodo: (state, action) => {
-            const newTodo: TodoItemData = {
-                id: Date.now().toString(),
-                title: action.payload.title,
-                description: action.payload.description,
-                priority: action.payload.priority,
-            }
-
-            state.todoList.push(newTodo)
-        }
+        addTodoItem: addTodo
     }
 })
 
 export default todoSlice.reducer
-export const {addTodo} = todoSlice.actions
+export const {addTodoItem} = todoSlice.actions
+
+export type {
+    TodoListState
+}
