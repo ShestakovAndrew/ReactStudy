@@ -1,11 +1,15 @@
 import React, {useEffect, useRef, useState} from "react"
-import {TodoPriority} from "./model/todo.types"
+import {TodoPriority} from "../model/todo.types"
 import style from "./DropDown.module.css"
 
-const DropDown = () => {
+type DropDownProps = {
+    currentPriority: any
+    setCurrentPriority: any
+}
+
+const DropDown = ({currentPriority, setCurrentPriority}: DropDownProps) => {
     const containerRef = useRef<HTMLDivElement>(null)
     const [isOpen, setIsOpen] = useState(false)
-    const [currentPriority, setCurrentPriority] = useState<string>(TodoPriority.High)
 
     useEffect(() => {
         const handleClick = (event: any) => {
@@ -30,7 +34,7 @@ const DropDown = () => {
         return () => {
             document.removeEventListener("mousedown", handleClick)
         }
-    }, [])
+    })
 
     return (
         <div className={style.container} ref={containerRef}>
