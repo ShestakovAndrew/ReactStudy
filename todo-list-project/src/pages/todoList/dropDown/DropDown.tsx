@@ -12,10 +12,11 @@ const DropDown = ({currentPriority, setCurrentPriority}: DropDownProps) => {
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
-        const handleClick = (event: any) => {
+        const handleClick = (event: MouseEvent) => {
             if (containerRef.current) {
-                const isDropDownClick: boolean = containerRef.current.contains(event.target)
-                const priority: string = event.target.firstChild.nodeValue
+                const elementClick: Node = event.target as Node
+                const isDropDownClick: boolean = containerRef.current.contains(elementClick)
+                const priority: string | null = elementClick.firstChild!.nodeValue
 
                 if (!isDropDownClick && priority === null) {
                     setIsOpen(false)
