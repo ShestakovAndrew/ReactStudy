@@ -1,4 +1,5 @@
 import React from "react"
+import {PriorityDropDown} from "../todoList/priorityDropDown/PriorityDropDown"
 
 const CreateTodoItem = () => {
     return (
@@ -11,6 +12,7 @@ const CreateTodoItem = () => {
                 <label className="form-label">Описание</label>
                 <input type="text" className="form-control" placeholder="Описание задачи"/>
             </div>
+            <PriorityDropDown />
             <div className='d-flex justify-content-center'>
                 <button className='btn btn-success'>
                     Сохранить

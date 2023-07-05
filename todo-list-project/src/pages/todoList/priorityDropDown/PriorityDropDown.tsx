@@ -1,13 +1,14 @@
 import React, {useEffect, useRef, useState} from "react"
 import {TodoPriority} from "../model/todo.types"
-import style from "./DropDown.module.css"
+import style from "./PriorityDropDown.module.css"
+import {useDispatch} from "react-redux"
+import {changePriority} from "../model/prioritySlice"
+import {useTodoPrioritySelector} from "../../../redux/hooks/useTodoListSelector"
 
-type DropDownProps = {
-    currentPriority: any
-    setCurrentPriority: any
-}
+const PriorityDropDown = () => {
+    const priority = useTodoPrioritySelector()
+    const dispatch = useDispatch()
 
-const DropDown = ({currentPriority, setCurrentPriority}: DropDownProps) => {
     const containerRef = useRef<HTMLDivElement>(null)
     const [isOpen, setIsOpen] = useState(false)
 
@@ -24,7 +25,7 @@ const DropDown = ({currentPriority, setCurrentPriority}: DropDownProps) => {
                 }
 
                 if (isDropDownClick && priority) {
-                    setCurrentPriority(priority)
+                    dispatch(changePriority(priority as TodoPriority))
                     setIsOpen((prevState: boolean) => !prevState)
                     return
                 }
@@ -40,7 +41,7 @@ const DropDown = ({currentPriority, setCurrentPriority}: DropDownProps) => {
     return (
         <div className={style.container} ref={containerRef}>
             <button className={style.button}>
-                {currentPriority}
+                {priority}
             </button>
             {isOpen && (
                 <div className={style.dropdown}>
@@ -56,5 +57,5 @@ const DropDown = ({currentPriority, setCurrentPriority}: DropDownProps) => {
 }
 
 export {
-    DropDown
+    PriorityDropDown
 }
