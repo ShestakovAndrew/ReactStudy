@@ -1,4 +1,4 @@
-import {TodoItemProps} from "../model/todo.types"
+import {priorityEnumToString, TodoItemProps} from "../model/todo.types"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const TodoItem = ({title, description, priority}: TodoItemProps) => {
@@ -6,7 +6,7 @@ const TodoItem = ({title, description, priority}: TodoItemProps) => {
         <tr>
             <td>{title}</td>
             <td>{description}</td>
-            <td>{priority}</td>
+            <td>{priorityEnumToString(priority)}</td>
         </tr>
     )
 }

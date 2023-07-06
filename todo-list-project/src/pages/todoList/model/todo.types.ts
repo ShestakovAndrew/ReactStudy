@@ -9,13 +9,22 @@ type TodoItemData = {
 } & TodoItemProps
 
 enum TodoPriority {
-    Low = 'Низкий',
-    Medium = 'Средний',
-    High = 'Высокий'
+    Low ,
+    Medium,
+    High
+}
+
+const priorityEnumToString = (priority: TodoPriority) => {
+    switch (priority) {
+        case TodoPriority.High: return "Высокий"
+        case TodoPriority.Medium: return "Средний"
+        case TodoPriority.Low: return "Низкий"
+    }
 }
 
 export {
     TodoPriority,
+    priorityEnumToString
 }
 
 export type {
