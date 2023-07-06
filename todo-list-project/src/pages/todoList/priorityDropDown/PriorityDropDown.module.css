@@ -1,6 +1,16 @@
-.container {
+.dropdown {
     position: relative;
     display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+
+    list-style-type: none;
+    margin: 5px 0;
+
+    border: 1px solid grey;
+    width: 150px;
 }
 
 .button {

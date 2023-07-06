@@ -1,56 +1,56 @@
 import React, {useEffect, useRef, useState} from "react"
-import {TodoPriority} from "../model/todo.types"
-import style from "./PriorityDropDown.module.css"
 import {useDispatch} from "react-redux"
-import {changePriority} from "../model/prioritySlice"
+
+import {priorityEnumToString, TodoPriority} from "../model/todo.types"
+import style from "./PriorityDropDown.module.css"
+
+import {changePriorityAction} from "../model/prioritySlice"
 import {useTodoPrioritySelector} from "../../../redux/hooks/useTodoListSelector"
 
 const PriorityDropDown = () => {
     const priority = useTodoPrioritySelector()
     const dispatch = useDispatch()
 
-    const containerRef = useRef<HTMLDivElement>(null)
+    const priorityDropDownRef = useRef<HTMLDivElement>(null)
     const [isOpen, setIsOpen] = useState(false)
 
+    const handleToggleShow = () => {
+        setIsOpen((prevState: boolean) => !prevState)
+    }
+
+    const handleSetPriority = (priority: TodoPriority) => {
+        dispatch(changePriorityAction(priority))
+        setIsOpen(false)
+    }
+
     useEffect(() => {
-        const handleClick = (event: MouseEvent) => {
-            if (containerRef.current) {
+        const handleOutsideClick = (event: MouseEvent) => {
+            if (priorityDropDownRef.current) {
                 const elementClick: Node = event.target as Node
-                const isDropDownClick: boolean = containerRef.current.contains(elementClick)
-                const priority: string | null = elementClick.firstChild!.nodeValue
+                const isDropDownClick: boolean = priorityDropDownRef.current.contains(elementClick)
 
-                if (!isDropDownClick && priority === null) {
+                if (!isDropDownClick) {
                     setIsOpen(false)
-                    return
-                }
-
-                if (isDropDownClick && priority) {
-                    dispatch(changePriority(priority as TodoPriority))
-                    setIsOpen((prevState: boolean) => !prevState)
-                    return
                 }
             }
         }
 
-        document.addEventListener('mousedown', handleClick)
+        document.addEventListener('mousedown', handleOutsideClick)
+
         return () => {
-            document.removeEventListener("mousedown", handleClick)
+            document.removeEventListener("mousedown", handleOutsideClick)
         }
-    })
+    }, [])
 
     return (
-        <div className={style.container} ref={containerRef}>
-            <button className={style.button}>
-                {priority}
-            </button>
+        <div className={style.dropdown} ref={priorityDropDownRef} >
+            <button className={style.button} onClick={handleToggleShow}>{priorityEnumToString(priority)}</button>
             {isOpen && (
-                <div className={style.dropdown}>
-                    <ul>
-                        <li>{TodoPriority.High}</li>
-                        <li>{TodoPriority.Medium}</li>
-                        <li>{TodoPriority.Low}</li>
-                    </ul>
-                </div>
+                <ul className={style.dropdownMenu}>
+                    <li onClick={() => handleSetPriority(TodoPriority.High)}>Высокий</li>
+                    <li onClick={() => handleSetPriority(TodoPriority.Medium)}>Средний</li>
+                    <li onClick={() => handleSetPriority(TodoPriority.Low)}>Низкий</li>
+                </ul>
             )}
         </div>
     )
