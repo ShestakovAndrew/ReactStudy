@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {TodoItem} from "./todoItem/TodoItem"
 import {NavigationBar, PAGE_FIRST, RECORDS_PER_PAGE} from "./navigationBar/NavigationBar"
-import {PriorityDropDown} from "./priorityDropDown/PriorityDropDown"
+import {DropDown} from "./dropDown/DropDown"
 
 const TodoList = () => {
     const navigate = useNavigate()
@@ -24,7 +24,7 @@ const TodoList = () => {
     return (
         <div>
             <h1 className={styles.header}>Список дел</h1>
-            <PriorityDropDown />
+            <DropDown isChangeStorePriority/>
             <table className='table table-striped table-sm'>
                 <thead>
                     <tr>

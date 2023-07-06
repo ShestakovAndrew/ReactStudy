@@ -47,7 +47,6 @@ const NavigationBar = ({ todoListLength, currentPage, setCurrentPage }: Navigati
                     <a href='#/' className='page-link' onClick={nextPageHandler}>Следующая</a>
                 </li>
             </ul>
-
         </div>
     )
 }

@@ -2,24 +2,29 @@ import React, {useEffect, useRef, useState} from "react"
 import {useDispatch} from "react-redux"
 
 import {priorityEnumToString, TodoPriority} from "../model/todo.types"
-import style from "./PriorityDropDown.module.css"
+import style from "./DropDown.module.css"
 
 import {changePriorityAction} from "../model/prioritySlice"
-import {useTodoPrioritySelector} from "../../../redux/hooks/useTodoListSelector"
 
-const PriorityDropDown = () => {
-    const priority = useTodoPrioritySelector()
-    const dispatch = useDispatch()
+const DropDown = ({isChangeStorePriority = false}) => {
+    const [isOpen, setIsOpen] = useState(false)
+    const [currentPriority, setCurrentPriority] = useState<TodoPriority>(TodoPriority.High)
 
     const priorityDropDownRef = useRef<HTMLDivElement>(null)
-    const [isOpen, setIsOpen] = useState(false)
+
+    const dispatch = useDispatch()
 
     const handleToggleShow = () => {
         setIsOpen((prevState: boolean) => !prevState)
     }
 
     const handleSetPriority = (priority: TodoPriority) => {
-        dispatch(changePriorityAction(priority))
+        if (isChangeStorePriority)
+        {
+            dispatch(changePriorityAction(priority))
+        }
+
+        setCurrentPriority(priority)
         setIsOpen(false)
     }
 
@@ -44,7 +49,7 @@ const PriorityDropDown = () => {
 
     return (
         <div className={style.dropdown} ref={priorityDropDownRef} >
-            <button className={style.button} onClick={handleToggleShow}>{priorityEnumToString(priority)}</button>
+            <button className={style.button} onClick={handleToggleShow}>{priorityEnumToString(currentPriority)}</button>
             {isOpen && (
                 <ul className={style.dropdownMenu}>
                     <li onClick={() => handleSetPriority(TodoPriority.High)}>Высокий</li>
@@ -57,5 +62,5 @@ const PriorityDropDown = () => {
 }
 
 export {
-    PriorityDropDown
+    DropDown
 }
