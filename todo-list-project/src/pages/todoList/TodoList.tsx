@@ -13,10 +13,12 @@ import {PriorityDropDown} from "./priorityDropDown/PriorityDropDown"
 const TodoList = () => {
     const navigate = useNavigate()
     const todoList = useTodoListSelector()
+
     const [currentPage, setCurrentPage] = useState(PAGE_FIRST)
 
     const lastIndex: number = currentPage * RECORDS_PER_PAGE
     const firstIndex: number = lastIndex - RECORDS_PER_PAGE
+
     const records: TodoItemData[] = todoList.slice(firstIndex, lastIndex)
 
     return (

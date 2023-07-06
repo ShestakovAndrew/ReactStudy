@@ -1,9 +1,8 @@
 import React from 'react'
-import {Route, Routes} from "react-router-dom"
+import {Navigate, Route, Routes} from "react-router-dom"
 
 import {TodoList} from "./pages/todoList/TodoList"
 import {CreateTodoItem} from "./pages/createTodoItem/CreateTodoItem"
-import {NotFound} from "./pages/notFound/NotFound"
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
         <Routes>
           <Route path='/todo-list' element={<TodoList />}/>
           <Route path='/create-todo-item' element={<CreateTodoItem />}/>
-          <Route path='*' element={<NotFound />}/>
+          <Route path='*' element={<Navigate to='/todo-list' replace />}/>
         </Routes>
       </div>
   )
