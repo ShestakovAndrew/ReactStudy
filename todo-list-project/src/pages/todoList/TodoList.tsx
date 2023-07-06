@@ -19,7 +19,7 @@ const TodoList = () => {
     const lastIndex: number = currentPage * RECORDS_PER_PAGE
     const firstIndex: number = lastIndex - RECORDS_PER_PAGE
 
-    const records: TodoItemData[] = todoList.slice(firstIndex, lastIndex)
+    const todoListView: TodoItemData[] = todoList.slice(firstIndex, lastIndex)
 
     return (
         <div>
@@ -35,7 +35,7 @@ const TodoList = () => {
                 </thead>
                 <tbody>
                 {
-                    records.map((todoItem: TodoItemData) => (
+                    todoListView.map((todoItem: TodoItemData) => (
                         <TodoItem key={todoItem.id}
                                   title={todoItem.title}
                                   description={todoItem.description}
@@ -44,12 +44,7 @@ const TodoList = () => {
                 }
                 </tbody>
             </table>
-
-            <NavigationBar
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                todoListLength={todoList.length}/>
-
+            <NavigationBar currentPage={currentPage} setCurrentPage={setCurrentPage} todoListLength={todoList.length}/>
             <div className='d-flex justify-content-center'>
                 <button className='btn btn-success' onClick={() => navigate('/create-todo-item')}>
                     Добавить новое дело
