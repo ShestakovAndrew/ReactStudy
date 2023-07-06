@@ -14,12 +14,12 @@ const prioritySlice = createSlice({
     name: 'priority',
     initialState,
     reducers: {
-        changePriority: changeTodoPriority
+        changePriorityAction: changeTodoPriority
     }
 })
 
 export default prioritySlice.reducer
-export const {changePriority} = prioritySlice.actions
+export const {changePriorityAction} = prioritySlice.actions
 
 export type {
     PriorityState
