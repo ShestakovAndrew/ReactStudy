@@ -24,7 +24,9 @@ const TodoList = () => {
     return (
         <div>
             <h1 className={styles.header}>Список дел</h1>
-            <DropDown isChangeStorePriority/>
+
+            <DropDown isChangeStoreTodoPriority/>
+
             <table className='table table-striped table-sm'>
                 <thead>
                     <tr>
