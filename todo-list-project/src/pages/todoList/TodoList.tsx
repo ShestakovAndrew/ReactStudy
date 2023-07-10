@@ -1,6 +1,6 @@
-import {useTodoListSelector} from "../../redux/hooks/useTodoListSelector"
-import {TodoItemData} from "./model/todo.types"
-import React, {useState} from "react"
+import {useTodoListSelector, useTodoPrioritySelector} from "../../redux/hooks/useTodoListSelector"
+import {TodoItemData, TodoPriority} from "./model/todo.types"
+import React, {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 import styles from "./TodoList.module.css"
@@ -12,14 +12,27 @@ import {DropDown} from "./dropDown/DropDown"
 
 const TodoList = () => {
     const navigate = useNavigate()
-    const todoList = useTodoListSelector()
+    const todoList: TodoItemData[] = useTodoListSelector()
+    const selectedPriority: TodoPriority = useTodoPrioritySelector()
 
-    const [currentPage, setCurrentPage] = useState(PAGE_FIRST)
+    const [currentPage, setCurrentPage] = useState<number>(PAGE_FIRST)
+    const [lastIndex, setLastIndex] = useState(PAGE_FIRST * RECORDS_PER_PAGE)
+    const [firstIndex, setFirstIndex] = useState(lastIndex - RECORDS_PER_PAGE)
+    const [todoListView, setTodoListView] = useState(todoList.slice(firstIndex, lastIndex))
 
-    const lastIndex: number = currentPage * RECORDS_PER_PAGE
-    const firstIndex: number = lastIndex - RECORDS_PER_PAGE
+    useEffect(() => {
+        const compareByPriority = (firstTodoItem: TodoItemData, secondTodoItem: TodoItemData) => {
+            if (firstTodoItem.priority === selectedPriority && secondTodoItem.priority === selectedPriority) return 2
+            else if (secondTodoItem.priority === selectedPriority) return 1
+            else if (firstTodoItem.priority === selectedPriority) return -1
+            return secondTodoItem.priority - firstTodoItem.priority
+        }
+        const todoListSorted: TodoItemData[] = [...todoList].sort(compareByPriority)
 
-    const todoListView: TodoItemData[] = todoList.slice(firstIndex, lastIndex)
+        setLastIndex(currentPage * RECORDS_PER_PAGE)
+        setFirstIndex(lastIndex - RECORDS_PER_PAGE)
+        setTodoListView(todoListSorted.slice(firstIndex, lastIndex))
+    }, [currentPage, firstIndex, lastIndex, selectedPriority, todoList])
 
     return (
         <div>
