@@ -24,9 +24,7 @@ const TodoList = () => {
     return (
         <div>
             <h1 className={styles.header}>Список дел</h1>
-
             <DropDown isChangeStoreTodoPriority/>
-
             <table className='table table-striped table-sm'>
                 <thead>
                     <tr>
@@ -47,11 +45,9 @@ const TodoList = () => {
                 </tbody>
             </table>
             <NavigationBar currentPage={currentPage} setCurrentPage={setCurrentPage} todoListLength={todoList.length}/>
-            <div className='d-flex justify-content-center'>
-                <button className='btn btn-success' onClick={() => navigate('/create-todo-item')}>
-                    Добавить новое дело
-                </button>
-            </div>
+            <button className='btn btn-success mx-auto d-block' onClick={() => navigate('/create-todo-item')}>
+                Добавить новое дело
+            </button>
         </div>
     )
 }
