@@ -1,25 +1,24 @@
-import React from "react"
+import React, {FormEvent, useState} from "react"
 import {DropDown} from "../todoList/dropDown/DropDown"
+import style from "./CreateTodoItem.module.css"
+import {TodoPriority} from "../todoList/model/todo.types";
 
 const CreateTodoItem = () => {
-    return (
-        <form>
-            <div className="mb-3">
-                <label className="form-label">Название</label>
-                <input type="text" className="form-control" placeholder="Название задачи"/>
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Описание</label>
-                <input type="text" className="form-control" placeholder="Описание задачи"/>
-            </div>
-            <DropDown />
-            <div className='d-flex justify-content-center'>
-                <button className='btn btn-success'>
-                    Сохранить
-                </button>
-            </div>
-        </form>
+    const [currentPriority, setCurrentPriority] = useState<TodoPriority>(TodoPriority.High)
+    const submitHandler = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log("submitHandler")
+    }
 
+    return (
+        <div>
+            <DropDown />
+            <form onSubmit={submitHandler}>
+                <input type="text" className={style.textInputForm} placeholder="Название задачи"/>
+                <input type="text" className={style.textInputForm} placeholder="Описание задачи"/>
+                <button type='submit' className='btn btn-success mx-auto d-block'>Сохранить</button>
+            </form>
+        </div>
     )
 }
 
