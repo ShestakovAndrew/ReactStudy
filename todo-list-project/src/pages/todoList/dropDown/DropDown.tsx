@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from "react"
-import {useDispatch} from "react-redux"
 
 import {priorityEnumToString, TodoPriority} from "../model/todo.types"
 import style from "./DropDown.module.css"
 
 import {changePriorityAction} from "../model/prioritySlice"
 import {useTodoPrioritySelector} from "../../../redux/hooks/useTodoListSelector"
+import {useAppDispatch} from "../../../redux/hooks/baseHooks"
 
 type DropDownProps = {
     isChangeStoreTodoPriority?: boolean
@@ -17,7 +17,7 @@ const DropDown = ({isChangeStoreTodoPriority = false}: DropDownProps) => {
 
     const priorityDropDownRef = useRef<HTMLDivElement>(null)
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const priorityFromStore = useTodoPrioritySelector()
 
     const handleToggleShow = () => {
