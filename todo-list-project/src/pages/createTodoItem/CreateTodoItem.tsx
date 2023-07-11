@@ -2,19 +2,31 @@ import React, {FormEvent, useState} from "react"
 import {DropDown} from "../todoList/dropDown/DropDown"
 import styles from "./CreateTodoItem.module.css"
 import {TodoPriority} from "../todoList/model/todo.types"
+import {useAppDispatch} from "../../redux/hooks/baseHooks"
+import {saveTodo} from "../todoList/model/actions/addTodo"
 
 const CreateTodoItem = () => {
-    const [newTodoTitle, setNewTodoTitle] = useState('')
-    const [newTodoDescription, setNewTodoDescription] = useState('')
+    const [todoTitle, setNewTodoTitle] = useState('')
+    const [todoDescription, setNewTodoDescription] = useState('')
     const [todoPriority, setTodoPriority] = useState(TodoPriority.High)
 
-    const submitHandler = (event: FormEvent) => {
+    const dispatch = useAppDispatch()
+
+    const handleSubmit = async (event: FormEvent) => {
         event.preventDefault()
-        //addTodo async
+
+        if (todoTitle) {
+            await dispatch(saveTodo({
+                id: Date.now().toString(),
+                title: todoTitle,
+                description: todoDescription,
+                priority: todoPriority
+            }))
+        }
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={handleSubmit}>
             <input type="text" className={styles.textInputForm} placeholder="Название задачи" onChange={(event) => setNewTodoTitle(event.target.value)}/>
             <input type="text" className={styles.textInputForm} placeholder="Описание задачи" onChange={(event) => setNewTodoDescription(event.target.value)}/>
             <div className={styles.dropdownContainer}>
