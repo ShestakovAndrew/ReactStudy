@@ -4,7 +4,6 @@ import React, {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 import styles from "./TodoList.module.css"
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {TodoItem} from "./todoItem/TodoItem"
 import {Pagination, PAGE_FIRST, RECORDS_PER_PAGE} from "./pagination/Pagination"
@@ -16,10 +15,10 @@ const TodoList = () => {
     const selectedPriority: TodoPriority = useTodoPrioritySelector()
 
     const [currentPage, setCurrentPage] = useState<number>(PAGE_FIRST)
-    const [lastIndex, setLastIndex] = useState(PAGE_FIRST * RECORDS_PER_PAGE)
-    const [firstIndex, setFirstIndex] = useState(lastIndex - RECORDS_PER_PAGE)
-    const [todoListView, setTodoListView] = useState(todoList.slice(firstIndex, lastIndex))
-    const [todoPriority, setTodoPriority] = useState(TodoPriority.High)
+    const [lastIndex, setLastIndex] = useState<number>(PAGE_FIRST * RECORDS_PER_PAGE)
+    const [firstIndex, setFirstIndex] = useState<number>(lastIndex - RECORDS_PER_PAGE)
+    const [todoListView, setTodoListView] = useState<TodoItemData[]>(todoList.slice(firstIndex, lastIndex))
+    const [todoPriority, setTodoPriority] = useState<TodoPriority>(TodoPriority.High)
 
     useEffect(() => {
         const compareByPriority = (firstTodoItem: TodoItemData, secondTodoItem: TodoItemData) => {
@@ -39,7 +38,7 @@ const TodoList = () => {
         <div>
             <h1 className={styles.header}>Список дел</h1>
             <DropDown todoPriority={todoPriority} setTodoPriority={setTodoPriority} isChangeStoreTodoPriority/>
-            <table className='table table-striped table-sm'>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th>Заголовок</th>
@@ -59,7 +58,7 @@ const TodoList = () => {
                 </tbody>
             </table>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} todoListLength={todoList.length}/>
-            <button className='btn btn-success mx-auto d-block' onClick={() => navigate('/create-todo-item')}>
+            <button className={styles.buttonSuccess} onClick={() => navigate('/create-todo-item')}>
                 Добавить новое дело
             </button>
         </div>
