@@ -1,5 +1,4 @@
 import {priorityEnumToString, TodoItemProps} from "../model/todo.types"
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 const TodoItem = ({title, description, priority}: TodoItemProps) => {
     return (
