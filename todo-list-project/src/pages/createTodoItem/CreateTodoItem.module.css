@@ -1,8 +1,7 @@
 input {
-    display:block;
-    width:100%;
-    margin:10px 0;
-    padding:10px;
+    display: block;
+    margin: 10px auto;
+    padding:  10px;
 }
 
 .textInputForm {
@@ -27,6 +26,7 @@ input {
 }
 
 .buttonSuccess:hover {
+    cursor: pointer;
     background-color: limegreen;
 }
 
@@ -34,8 +34,9 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
-.dropdownContainer h5 {
-    margin-right: 10px;
+.dropdownContainer h4 {
+    margin-right: 15px;
 }

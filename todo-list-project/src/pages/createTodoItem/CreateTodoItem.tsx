@@ -33,7 +33,7 @@ const CreateTodoItem = () => {
             <input type="text" className={styles.textInputForm} placeholder="Название задачи" onChange={(event) => setNewTodoTitle(event.target.value)}/>
             <input type="text" className={styles.textInputForm} placeholder="Описание задачи" onChange={(event) => setNewTodoDescription(event.target.value)}/>
             <div className={styles.dropdownContainer}>
-                <h5>Приоритет задачи:</h5>
+                <h4>Приоритет задачи:</h4>
                 <DropDown todoPriority={todoPriority} setTodoPriority={setTodoPriority}/>
             </div>
             <button type='submit' className={styles.buttonSuccess}>Сохранить</button>
