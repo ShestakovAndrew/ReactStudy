@@ -7,7 +7,7 @@ import styles from "./TodoList.module.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {TodoItem} from "./todoItem/TodoItem"
-import {NavigationBar, PAGE_FIRST, RECORDS_PER_PAGE} from "./navigationBar/NavigationBar"
+import {Pagination, PAGE_FIRST, RECORDS_PER_PAGE} from "./pagination/Pagination"
 import {DropDown} from "./dropDown/DropDown"
 
 const TodoList = () => {
@@ -58,7 +58,7 @@ const TodoList = () => {
                 }
                 </tbody>
             </table>
-            <NavigationBar currentPage={currentPage} setCurrentPage={setCurrentPage} todoListLength={todoList.length}/>
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} todoListLength={todoList.length}/>
             <button className='btn btn-success mx-auto d-block' onClick={() => navigate('/create-todo-item')}>
                 Добавить новое дело
             </button>
