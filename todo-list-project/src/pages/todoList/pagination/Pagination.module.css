@@ -1,0 +1,22 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.prevPage, .nextPage, .page {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid;
+    font-size: 17px;
+}
+
+.prevPage:hover, .nextPage:hover, .page:hover {
+    cursor: pointer;
+    color: white;
+    background-color: lightskyblue;
+}
+
+.page.active {
+    background-color: lightskyblue;
+}

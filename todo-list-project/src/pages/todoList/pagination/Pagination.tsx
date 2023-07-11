@@ -1,5 +1,5 @@
 import React from "react"
-import 'bootstrap/dist/css/bootstrap.min.css'
+import styles from './Pagination.module.css'
 
 const PAGE_FIRST: number = 1
 const RECORDS_PER_PAGE: number = 5
@@ -31,21 +31,21 @@ const Pagination = ({ todoListLength, currentPage, setCurrentPage }: NavigationB
     }
 
     return (
-        <ul className='pagination justify-content-center'>
-            <li className='page-item'>
-                <a href='#/' className='page-link' onClick={prevPageHandler}>Прошлая</a>
-            </li>
+        <div className={styles.paginationContainer}>
+            <button className={styles.prevPage} onClick={prevPageHandler}>Прошлая</button>
             {
-                numbers.map(number => (
-                    <li className={`page-item ${currentPage === number ? 'active' : ''}`} key={number}>
-                        <a href='#/' className='page-link' onClick={() => changePageHandler(number)}>{number}</a>
-                    </li>
+                numbers.map((number: number) => (
+                    <button
+                        className={styles.page + ` ${currentPage === number ? styles.active : ''}`}
+                        onClick={() => changePageHandler(number)}
+                        key={number}
+                    >
+                        {number}
+                    </button>
                 ))
             }
-            <li className='page-item'>
-                <a href='#/' className='page-link' onClick={nextPageHandler}>Следующая</a>
-            </li>
-        </ul>
+            <button className={styles.nextPage} onClick={nextPageHandler}>Следующая</button>
+        </div>
     )
 }
 
