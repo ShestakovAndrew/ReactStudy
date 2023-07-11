@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from "react"
 import {priorityEnumToString, TodoPriority} from "../model/todo.types"
 import style from "./DropDown.module.css"
 
-import {changePriorityAction} from "../model/prioritySlice"
+import {changePriorityAction} from "../model/slices/prioritySlice"
 import {useTodoPrioritySelector} from "../../../redux/hooks/useTodoListSelector"
 import {useAppDispatch} from "../../../redux/hooks/baseHooks"
 

@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {TodoPriority} from "./todo.types"
-import {changeTodoPriority} from "./actions/changeTodoPriority"
+import {TodoPriority} from "../todo.types"
+import {changeTodoPriority} from "../actions/changeTodoPriority"
 
 type PriorityState = {
     priority: TodoPriority

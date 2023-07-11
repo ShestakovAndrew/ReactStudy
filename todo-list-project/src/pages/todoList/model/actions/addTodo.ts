@@ -1,6 +1,6 @@
 import {Draft, PayloadAction} from "@reduxjs/toolkit"
 import {TodoItemProps} from "../todo.types"
-import {TodoListState} from "../todoSlice"
+import {TodoListState} from "../slices/todoSlice"
 
 const addTodo = (state: Draft<TodoListState>, action: PayloadAction<TodoItemProps>) => {
     state.todoList.push({
