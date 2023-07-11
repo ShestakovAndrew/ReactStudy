@@ -4,12 +4,14 @@ import styles from "./CreateTodoItem.module.css"
 import {TodoPriority} from "../todoList/model/todo.types"
 import {useAppDispatch} from "../../redux/hooks/baseHooks"
 import {saveTodo} from "../todoList/model/actions/addTodo"
+import {useNavigate} from "react-router-dom"
 
 const CreateTodoItem = () => {
     const [todoTitle, setNewTodoTitle] = useState('')
     const [todoDescription, setNewTodoDescription] = useState('')
     const [todoPriority, setTodoPriority] = useState(TodoPriority.High)
 
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
     const handleSubmit = async (event: FormEvent) => {
@@ -22,6 +24,7 @@ const CreateTodoItem = () => {
                 description: todoDescription,
                 priority: todoPriority
             }))
+            navigate('/todo-list')
         }
     }
 
