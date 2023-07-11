@@ -19,6 +19,7 @@ const TodoList = () => {
     const [lastIndex, setLastIndex] = useState(PAGE_FIRST * RECORDS_PER_PAGE)
     const [firstIndex, setFirstIndex] = useState(lastIndex - RECORDS_PER_PAGE)
     const [todoListView, setTodoListView] = useState(todoList.slice(firstIndex, lastIndex))
+    const [todoPriority, setTodoPriority] = useState(TodoPriority.High)
 
     useEffect(() => {
         const compareByPriority = (firstTodoItem: TodoItemData, secondTodoItem: TodoItemData) => {
@@ -37,7 +38,7 @@ const TodoList = () => {
     return (
         <div>
             <h1 className={styles.header}>Список дел</h1>
-            <DropDown isChangeStoreTodoPriority/>
+            <DropDown todoPriority={todoPriority} setTodoPriority={setTodoPriority} isChangeStoreTodoPriority/>
             <table className='table table-striped table-sm'>
                 <thead>
                     <tr>
