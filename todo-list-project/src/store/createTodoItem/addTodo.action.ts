@@ -1,6 +1,6 @@
 import {createAsyncThunk, Draft, PayloadAction} from "@reduxjs/toolkit"
-import {TodoItemData} from "../../../todoList/model/todo.types"
-import {TodoListState} from "../../../todoList/model/slices/todoSlice"
+import {TodoItemData} from "../../types/todo.types"
+import {TodoListState} from "../todoList/todo.slice"
 
 const saveTodo = createAsyncThunk('todo/save', async (todo: TodoItemData) => {
     /**
@@ -16,11 +16,11 @@ const saveTodo = createAsyncThunk('todo/save', async (todo: TodoItemData) => {
     return todo
 })
 
-const addTodo = (state: Draft<TodoListState>, action: PayloadAction<TodoItemData>) => {
+const addTodoAction = (state: Draft<TodoListState>, action: PayloadAction<TodoItemData>) => {
     state.todoList.push(action.payload)
 }
 
 export {
-    addTodo,
+    addTodoAction,
     saveTodo
 }

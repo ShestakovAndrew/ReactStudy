@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {TodoItemData} from "../todo.types"
-import {todoList} from "../../../../mock/todoData"
-import {addTodo, saveTodo} from "../../../createTodoItem/model/actions/addTodo"
+import {TodoItemData} from "../../types/todo.types"
+import {todoList} from "../../mock/todoData"
+import {addTodoAction, saveTodo} from "../createTodoItem/addTodo.action"
 
 type TodoListState = {
     todoList: TodoItemData[]
@@ -17,7 +17,7 @@ const todoSlice = createSlice({
     reducers: {
     },
     extraReducers: (builder) => {
-        builder.addCase(saveTodo.fulfilled, addTodo)
+        builder.addCase(saveTodo.fulfilled, addTodoAction)
     }
 })
 

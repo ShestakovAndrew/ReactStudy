@@ -1,4 +1,4 @@
-import {TodoItemData, TodoPriority} from "../pages/todoList/model/todo.types"
+import {TodoItemData, TodoPriority} from "../types/todo.types"
 
 const todoList: TodoItemData[] = [
     {

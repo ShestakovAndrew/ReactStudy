@@ -1,4 +1,4 @@
-import {priorityEnumToString, TodoItemProps} from "../model/todo.types"
+import {priorityEnumToString, TodoItemProps} from "../../../types/todo.types"
 
 const TodoItem = ({title, description, priority}: TodoItemProps) => {
     return (

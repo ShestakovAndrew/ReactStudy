@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react"
-import {priorityEnumToString, TodoPriority} from "../model/todo.types"
-import {changePriorityAction} from "../model/slices/prioritySlice"
+import {priorityEnumToString, TodoPriority} from "../../../types/todo.types"
+import {changePriorityAction} from "../../../store/todoList/priority.slice"
 import {useAppDispatch} from "../../../hooks/baseHooks"
 import {useTodoPrioritySelector} from "../../../hooks/useTodoPrioritySelector"
 

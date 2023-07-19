@@ -1,10 +1,11 @@
 import React, {FormEvent, useState} from "react"
-import {DropDown} from "../todoList/dropDown/DropDown"
-import styles from "./CreateTodoItem.module.css"
-import {TodoPriority} from "../todoList/model/todo.types"
-import {useAppDispatch} from "../../hooks/baseHooks"
-import {saveTodo} from "./model/actions/addTodo"
 import {useNavigate} from "react-router-dom"
+import {DropDown} from "../todoList/dropDown/DropDown"
+import {TodoPriority} from "../../types/todo.types"
+import {useAppDispatch} from "../../hooks/baseHooks"
+import {saveTodo} from "../../store/createTodoItem/addTodo.action"
+
+import styles from "./CreateTodoItem.module.css"
 
 const CreateTodoItem = () => {
     const [todoTitle, setNewTodoTitle] = useState('')

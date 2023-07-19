@@ -1,14 +1,13 @@
-import {useTodoListSelector} from "../../hooks/useTodoListSelector"
-import {useTodoPrioritySelector} from "../../hooks/useTodoPrioritySelector"
-import {TodoItemData, TodoPriority} from "./model/todo.types"
 import React, {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom"
-
-import styles from "./TodoList.module.css"
-
+import {useTodoListSelector} from "../../hooks/useTodoListSelector"
+import {useTodoPrioritySelector} from "../../hooks/useTodoPrioritySelector"
+import {TodoItemData, TodoPriority} from "../../types/todo.types"
 import {TodoItem} from "./todoItem/TodoItem"
 import {Pagination, PAGE_FIRST, RECORDS_PER_PAGE} from "./pagination/Pagination"
 import {DropDown} from "./dropDown/DropDown"
+
+import styles from "./TodoList.module.css"
 
 const TodoList = () => {
     const navigate = useNavigate()
