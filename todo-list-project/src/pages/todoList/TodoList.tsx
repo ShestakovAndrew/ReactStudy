@@ -1,4 +1,5 @@
-import {useTodoListSelector, useTodoPrioritySelector} from "../../hooks/useTodoListSelector"
+import {useTodoListSelector} from "../../hooks/useTodoListSelector"
+import {useTodoPrioritySelector} from "../../hooks/useTodoPrioritySelector"
 import {TodoItemData, TodoPriority} from "./model/todo.types"
 import React, {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom"

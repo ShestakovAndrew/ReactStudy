@@ -1,11 +1,10 @@
 import React, {useEffect, useRef, useState} from "react"
-
 import {priorityEnumToString, TodoPriority} from "../model/todo.types"
-import styles from "./DropDown.module.css"
-
 import {changePriorityAction} from "../model/slices/prioritySlice"
-import {useTodoPrioritySelector} from "../../../hooks/useTodoListSelector"
 import {useAppDispatch} from "../../../hooks/baseHooks"
+import {useTodoPrioritySelector} from "../../../hooks/useTodoPrioritySelector"
+
+import styles from "./DropDown.module.css"
 
 type DropDownProps = {
     todoPriority: TodoPriority,
