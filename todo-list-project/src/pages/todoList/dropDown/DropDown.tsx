@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react"
+import {useEffect, useRef, useState} from "react"
 import {priorityEnumToString, TodoPriority} from "../../../types/todo.types"
 import {changePriorityAction} from "../../../store/todoList/priority.slice"
 import {useAppDispatch} from "../../../hooks/baseHooks"
