@@ -1,6 +1,6 @@
 import {createAsyncThunk, Draft, PayloadAction} from "@reduxjs/toolkit"
 import {TodoItemData} from "../../../todoList/model/todo.types"
-import {TodoListState} from "../../../todoList/model/state/todoSlice"
+import {TodoListState} from "../../../todoList/model/slices/todoSlice"
 
 const saveTodo = createAsyncThunk('todo/save', async (todo: TodoItemData) => {
     /**

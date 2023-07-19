@@ -1,4 +1,4 @@
-import {useTodoListSelector, useTodoPrioritySelector} from "../../redux/hooks/useTodoListSelector"
+import {useTodoListSelector, useTodoPrioritySelector} from "../../hooks/useTodoListSelector"
 import {TodoItemData, TodoPriority} from "./model/todo.types"
 import React, {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom"

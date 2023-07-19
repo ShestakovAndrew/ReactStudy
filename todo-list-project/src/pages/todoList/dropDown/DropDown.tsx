@@ -3,9 +3,9 @@ import React, {useEffect, useRef, useState} from "react"
 import {priorityEnumToString, TodoPriority} from "../model/todo.types"
 import styles from "./DropDown.module.css"
 
-import {changePriorityAction} from "../model/state/prioritySlice"
-import {useTodoPrioritySelector} from "../../../redux/hooks/useTodoListSelector"
-import {useAppDispatch} from "../../../redux/hooks/baseHooks"
+import {changePriorityAction} from "../model/slices/prioritySlice"
+import {useTodoPrioritySelector} from "../../../hooks/useTodoListSelector"
+import {useAppDispatch} from "../../../hooks/baseHooks"
 
 type DropDownProps = {
     todoPriority: TodoPriority,
