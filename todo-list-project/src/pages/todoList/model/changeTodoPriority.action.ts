@@ -3,7 +3,9 @@ import {TodoPriority} from "../../../types/todo.types"
 import {PriorityState} from "./priority.state"
 
 const changeTodoPriority = (state: Draft<PriorityState>, action: PayloadAction<TodoPriority>) => {
-    state.priority = action.payload
+    if (action.payload !== state.priority) {
+        state.priority = action.payload
+    }
 }
 
 export {

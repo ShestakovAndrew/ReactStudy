@@ -22,12 +22,12 @@ const DropDown = ({todoPriority, setTodoPriority, isChangeStoreTodoPriority = fa
     }
 
     const handleDropdownItemButtonClick = (newPriority: TodoPriority) => {
-        if (newPriority === todoPriority) {
+        if (newPriority !== todoPriority) {
             setTodoPriority(newPriority)
+        }
 
-            if (isChangeStoreTodoPriority) {
-                dispatch(changePriorityAction(newPriority))
-            }
+        if (isChangeStoreTodoPriority) {
+            dispatch(changePriorityAction(newPriority))
         }
 
         setIsOpen(false)
