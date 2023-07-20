@@ -1,4 +1,4 @@
-.dropdownToggle {
+.dropdownButton {
     font-size: larger;
     border: 0;
     background-color: green;
@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.dropdownItem {
+.dropdownItemButton {
     font-size: larger;
     border: 0;
     background-color: white;
@@ -24,6 +24,6 @@
     display: flex;
 }
 
-.dropdownItem:hover {
+.dropdownItemButton:hover {
     background-color: lightgray;
 }

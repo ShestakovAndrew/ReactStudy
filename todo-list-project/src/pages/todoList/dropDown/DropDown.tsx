@@ -1,9 +1,8 @@
 import {useEffect, useRef, useState} from "react"
-import {priorityEnumToString, TodoPriority} from "../../../types/todo.types"
-import {changePriorityAction} from "../../../store/todoList/priority.slice"
 import {useAppDispatch} from "../../../hooks/baseHooks"
 import {useTodoPrioritySelector} from "../../../hooks/useTodoPrioritySelector"
-
+import {changePriorityAction} from "../../../store/todoList/priority.slice"
+import {priorityEnumToString, TodoPriority} from "../../../types/todo.types"
 import styles from "./DropDown.module.css"
 
 type DropDownProps = {
@@ -15,55 +14,55 @@ type DropDownProps = {
 const DropDown = ({todoPriority, setTodoPriority, isChangeStoreTodoPriority = false}: DropDownProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const priorityDropDownRef = useRef<HTMLDivElement>(null)
-
-    const dispatch = useAppDispatch()
     const todoPriorityFromStore = useTodoPrioritySelector()
+    const dispatch = useAppDispatch()
 
-    const handleToggleShow = () => {
+    const handleDropdownButtonClick = () => {
         setIsOpen((prevState: boolean) => !prevState)
     }
 
-    const handleSetPriority = (priority: TodoPriority) => {
-        if (isChangeStoreTodoPriority)
-        {
-            dispatch(changePriorityAction(priority))
-        }
+    const handleDropdownItemButtonClick = (newPriority: TodoPriority) => {
+        if (newPriority === todoPriority) {
+            setTodoPriority(newPriority)
 
-        setTodoPriority(priority)
-        setIsOpen(false)
-    }
-
-    useEffect(() => {
-        const handleOutsideClick = (event: MouseEvent) => {
-            if (priorityDropDownRef.current) {
-                const elementClick: Node = event.target as Node
-                const isDropDownClick: boolean = priorityDropDownRef.current.contains(elementClick)
-
-                if (!isDropDownClick) {
-                    setIsOpen(false)
-                }
+            if (isChangeStoreTodoPriority) {
+                dispatch(changePriorityAction(newPriority))
             }
         }
 
-        document.addEventListener('mousedown', handleOutsideClick)
+        setIsOpen(false)
+    }
 
+    const handleClick = (event: MouseEvent) => {
+        if (priorityDropDownRef.current) {
+            const elementClick: Node = event.target as Node
+            const isDropDownClick: boolean = priorityDropDownRef.current.contains(elementClick)
+
+            if (!isDropDownClick) {
+                setIsOpen(false)
+            }
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClick)
         return () => {
-            document.removeEventListener("mousedown", handleOutsideClick)
+            document.removeEventListener("mousedown", handleClick)
         }
     }, [])
 
     return (
         <div ref={priorityDropDownRef}>
-            <button type="button" className={styles.dropdownToggle} onClick={handleToggleShow}>
+            <button type="button" className={styles.dropdownButton} onClick={handleDropdownButtonClick}>
                 {
                     priorityEnumToString(isChangeStoreTodoPriority ? todoPriorityFromStore : todoPriority)
                 }
             </button>
             {isOpen && (
                 <div className={styles.dropdownMenu}>
-                    <button className={styles.dropdownItem} onClick={() => handleSetPriority(TodoPriority.High)}>Высокий</button>
-                    <button className={styles.dropdownItem} onClick={() => handleSetPriority(TodoPriority.Medium)}>Средний</button>
-                    <button className={styles.dropdownItem} onClick={() => handleSetPriority(TodoPriority.Low)}>Низкий</button>
+                    <button className={styles.dropdownItemButton} onClick={() => handleDropdownItemButtonClick(TodoPriority.High)}>Высокий</button>
+                    <button className={styles.dropdownItemButton} onClick={() => handleDropdownItemButtonClick(TodoPriority.Medium)}>Средний</button>
+                    <button className={styles.dropdownItemButton} onClick={() => handleDropdownItemButtonClick(TodoPriority.Low)}>Низкий</button>
                 </div>
             )}
         </div>
