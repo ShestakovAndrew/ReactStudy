@@ -1,6 +1,6 @@
-import {TodoItemData, TodoPriority} from "../types/todo.types"
+import {TodoItemModel, TodoPriority} from "../types/todo.types"
 
-const todoList: TodoItemData[] = [
+const todoList: TodoItemModel[] = [
     {
         id: '0',
         title: 'Проснуться',

@@ -1,8 +1,8 @@
 import {createAsyncThunk, Draft, PayloadAction} from "@reduxjs/toolkit"
-import {TodoItemData} from "../../types/todo.types"
-import {TodoListState} from "../todoList/todo.slice"
+import {TodoItemModel} from "../../../types/todo.types"
+import {TodoListState} from "./todoList.state"
 
-const saveTodo = createAsyncThunk('todo/save', async (todo: TodoItemData) => {
+const saveTodo = createAsyncThunk('todo/save', async (todoItem: TodoItemModel) => {
     /**
      * const response = await fetch('http://localhost:8000/todo', {
      *     method: 'POST',
@@ -13,14 +13,14 @@ const saveTodo = createAsyncThunk('todo/save', async (todo: TodoItemData) => {
      * })
      * return response.json()
      */
-    return todo
+    return todoItem
 })
 
-const addTodoAction = (state: Draft<TodoListState>, action: PayloadAction<TodoItemData>) => {
+const addTodo = (state: Draft<TodoListState>, action: PayloadAction<TodoItemModel>) => {
     state.todoList.push(action.payload)
 }
 
 export {
-    addTodoAction,
+    addTodo,
     saveTodo
 }

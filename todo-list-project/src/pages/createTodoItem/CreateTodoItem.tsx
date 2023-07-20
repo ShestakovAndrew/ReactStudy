@@ -1,7 +1,7 @@
 import {FormEvent, useState} from "react"
 import {useNavigate} from "react-router-dom"
 import {useAppDispatch} from "../../hooks/baseHooks"
-import {saveTodo} from "../../store/createTodoItem/addTodo.action"
+import {saveTodo} from "./model/addTodo.action"
 import {TodoPriority} from "../../types/todo.types"
 import {DropDown} from "../todoList/dropDown/DropDown"
 import styles from "./CreateTodoItem.module.css"

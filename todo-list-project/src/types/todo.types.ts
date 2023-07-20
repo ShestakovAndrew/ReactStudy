@@ -4,7 +4,7 @@ type TodoItemProps = {
     priority: TodoPriority
 }
 
-type TodoItemData = {
+type TodoItemModel = {
     id: string,
 } & TodoItemProps
 
@@ -29,5 +29,5 @@ export {
 
 export type {
     TodoItemProps,
-    TodoItemData,
+    TodoItemModel,
 }

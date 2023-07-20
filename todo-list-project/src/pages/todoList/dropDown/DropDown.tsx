@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react"
 import {useAppDispatch} from "../../../hooks/baseHooks"
 import {useTodoPrioritySelector} from "../../../hooks/useTodoPrioritySelector"
-import {changePriorityAction} from "../../../store/todoList/priority.slice"
+import {changePriorityAction} from "../model/priority.slice"
 import {priorityEnumToString, TodoPriority} from "../../../types/todo.types"
 import styles from "./DropDown.module.css"
 
