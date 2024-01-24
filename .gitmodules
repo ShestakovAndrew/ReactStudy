@@ -1,0 +1,9 @@
+[submodule "ReactRouterStudy"]
+	path = ReactRouterStudy
+	url = https://github.com/ShestakovAndrew/ReactRouterStudy.git
+[submodule "ReduxToolkitStudy"]
+	path = ReduxToolkitStudy
+	url = https://github.com/ShestakovAndrew/ReduxToolkitStudy.git
+[submodule "ReactHooksStudy"]
+	path = ReactHooksStudy
+	url = https://github.com/ShestakovAndrew/ReactHooksStudy.git
